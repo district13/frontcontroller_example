@@ -1,0 +1,3 @@
+<?foreach($this->post->comments as $comment):?>
+		<li><?=$comment->text;?>. <br>Автор комментария: <?=$comment->user->name;?></li>
+<?endforeach;?>

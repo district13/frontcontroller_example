@@ -1,0 +1,17 @@
+RewriteEngine On
+
+RewriteBase /
+
+RewriteRule ^js(.*)$ - [L]
+
+RewriteCond %{HTTP_HOST} [a-z0-9\-]*\.(([a-z0-9\-]*)\.|)(agoora\.ru)$
+RewriteRule ^(.*)$ - [env=SITE:%3,env=SUBDOMAIN:%2,env=DOMAIN:%3.lo,env=APPLICATION_ENV:development]
+
+RewriteCond %{REQUEST_FILENAME} -s [OR]
+RewriteCond %{REQUEST_FILENAME} -l [OR]
+RewriteCond %{REQUEST_FILENAME} -d
+RewriteRule ^.*$ - [NC,L]
+RewriteRule ^.*$ index.php [NC,L]
+RewriteRule !\.(html|js|ico|txt|gif|jpg|png|css|tar|xml|doc|.html|xml|wsdl|swf)$ index.php
+
+Options -Indexes

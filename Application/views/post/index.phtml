@@ -1,0 +1,17 @@
+<h3><?=$this->post->title?></h3>
+<div><?=$this->post->text?></div>
+<div>Автор поста: <?=$this->post->user->name?></div> 
+
+<h4>Комментарии:</h4>
+<ul id="comments">
+	<?foreach($this->post->comments as $comment):?>
+		<li><?=$comment->text;?>. <br>Автор комментария: <?=$comment->user->name;?></li>
+	<?endforeach;?>
+</ul>
+
+<br><br>Добавить комментарий:
+<form id="addcomment_form">
+	<input type="hidden" name="post_id" value="<?=$this->post->id?>">
+	<textarea id="comment_text" name="comment_text"></textarea>
+	<br><input id="addcomment" type="button" value="Send">
+</form>

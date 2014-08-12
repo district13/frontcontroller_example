@@ -1,0 +1,7 @@
+<h3>Записи:</h3>
+<?foreach($this->user->posts as $post):?>
+	<ul>
+		<li><a href="/post/index/?post_id=<?=$post->id?>"><?=$post->title?>.</a> Автор: <?=$post->user->name;?></li>
+	</ul>
+<?endforeach;?>
+
